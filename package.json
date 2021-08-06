@@ -1,0 +1,30 @@
+{
+  "name": "mini-library",
+  "version": "1.0.0",
+  "description": "mini lib with some logic",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MizushimaShiba/Mini-Library.git"
+  },
+  "author": "Mizushima Shiba",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MizushimaShiba/Mini-Library/issues"
+  },
+  "homepage": "https://github.com/MizushimaShiba/Mini-Library#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "pg": "^8.7.1",
+    "sequelize": "^6.6.5",
+    "sequelize-cli": "^6.2.0"
+  },
+  "devDependencies": {
+    "dotenv": "^10.0.0",
+    "nodemon": "^2.0.12"
+  }
+}

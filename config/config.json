@@ -1,0 +1,16 @@
+{
+  "development": {
+    "username": "mizushimashiba",
+    "password": null,
+    "database": "mini_library",
+    "host": "127.0.0.1",
+    "dialect": "postgres"
+  },
+  "test": {
+    "username": "mizushimashiba",
+    "password": null,
+    "database": "mini_library_test",
+    "host": "127.0.0.1",
+    "dialect": "postgres"
+  }
+}
