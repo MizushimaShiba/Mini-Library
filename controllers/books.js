@@ -6,13 +6,13 @@ module.exports = class BooksController {
 
     Books.create({bookName: name})
       .then(data => res.status(200).json(data))
-      .catch(err => res.error(err))
+      .catch(err => res.send(err))
   }
 
   static findAll(req, res) {
     Books.findAll()
       .then(data => res.status(200).json(data))
-      .catch(err => res.error(err))
+      .catch(err => res.send(err))
   }
 
   static findOne(req, res) {
@@ -22,7 +22,7 @@ module.exports = class BooksController {
 
     Books.findByPk(id)
       .then(data => res.status(200).json(data))
-      .catch(err => res.error(err))
+      .catch(err => res.send(err))
   }
 
   static updateName(req, res) {
@@ -33,7 +33,7 @@ module.exports = class BooksController {
 
     Books.update({bookName: name}, {where: {id}})
       .then(data => res.status(200).json(data))
-      .catch(err => res.error(err))
+      .catch(err => res.send(err))
   }
 
   static destroy(req, res) {
@@ -47,7 +47,7 @@ module.exports = class BooksController {
       }
     })
       .then(data => res.status(200).json(data))
-      .catch(err => res.error(err))
+      .catch(err => res.send(err))
   }
 
 
