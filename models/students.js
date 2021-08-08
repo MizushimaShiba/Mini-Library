@@ -17,7 +17,11 @@ module.exports = (sequelize, DataTypes) => {
     }
   };
   Students.init({
-    name: DataTypes.STRING
+    name: {
+      type: DataTypes.STRING,
+      unique: true
+    },
+    totalFine: DataTypes.INTEGER
   }, {
     sequelize,
     modelName: 'Students',

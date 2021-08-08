@@ -8,5 +8,8 @@ router.get('/books/:id', BooksController.findOne)
 router.delete('/books/:id', BooksController.destroy)
 
 
+router.post('/books/borrow', BooksController.borrowBooks)
+router.post('/books/return', BooksController.returnBooks)
+
 
 module.exports = router

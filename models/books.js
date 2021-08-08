@@ -17,7 +17,10 @@ module.exports = (sequelize, DataTypes) => {
     }
   };
   Books.init({
-    bookName: DataTypes.STRING,
+    bookName: {
+      type: DataTypes.STRING,
+      unique: true
+    },
     borrowedAt: DataTypes.DATE,
     dueDate: DataTypes.DATE,
     returnedAt: DataTypes.DATE,
