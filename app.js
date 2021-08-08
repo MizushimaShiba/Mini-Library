@@ -6,12 +6,15 @@ const app = express();
 const PORT = process.env.PORT || 3001
 const cors = require('cors')
 const books = require('./routes/books')
+const students = require('./routes/students')
 
 app.use(express.urlencoded({extended:false}))
 app.use(express.json())
 app.use(cors())
 
 app.use(books);
+app.use(students);
+
 
 app.use('/', (req, res) => {
   res.type('html').send(`
