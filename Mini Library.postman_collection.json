@@ -1,0 +1,320 @@
+{
+	"info": {
+		"_postman_id": "8dda84c8-d306-4307-9698-277d793d1e19",
+		"name": "Mini Library",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Books",
+			"item": [
+				{
+					"name": "Find All Books",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{localhost}}/books",
+							"host": [
+								"{{localhost}}"
+							],
+							"path": [
+								"books"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Borrow Book",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "studentName",
+									"value": "Joshua",
+									"type": "text"
+								},
+								{
+									"key": "bookName",
+									"value": "11 Stars",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{mini-lib-path}}/books/borrow",
+							"host": [
+								"{{mini-lib-path}}"
+							],
+							"path": [
+								"books",
+								"borrow"
+							],
+							"query": [
+								{
+									"key": "studentName",
+									"value": "Joshua",
+									"disabled": true
+								},
+								{
+									"key": "bookName",
+									"value": "101 lullaby",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Return Books",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "studentName",
+									"value": "Joshua",
+									"type": "text"
+								},
+								{
+									"key": "bookName",
+									"value": "11 Stars",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{mini-lib-path}}/books/return",
+							"host": [
+								"{{mini-lib-path}}"
+							],
+							"path": [
+								"books",
+								"return"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Find One Books",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{localhost}}/books/1",
+							"host": [
+								"{{localhost}}"
+							],
+							"path": [
+								"books",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add Books",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "name",
+									"value": "Hello World story",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{localhost}}/books",
+							"host": [
+								"{{localhost}}"
+							],
+							"path": [
+								"books"
+							],
+							"query": [
+								{
+									"key": "",
+									"value": null,
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update name books",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "name",
+									"value": "1001 lullaby",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{localhost}}/books/1",
+							"host": [
+								"{{localhost}}"
+							],
+							"path": [
+								"books",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Books",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{localhost}}/books/7",
+							"host": [
+								"{{localhost}}"
+							],
+							"path": [
+								"books",
+								"7"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Students",
+			"item": [
+				{
+					"name": "Find All Students",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{localhost}}/students",
+							"host": [
+								"{{localhost}}"
+							],
+							"path": [
+								"students"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add new student",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "name",
+									"value": "Wehrmacht",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{localhost}}/students",
+							"host": [
+								"{{localhost}}"
+							],
+							"path": [
+								"students"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Student Name",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "name",
+									"value": "Bartholomew",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{localhost}}/students/10",
+							"host": [
+								"{{localhost}}"
+							],
+							"path": [
+								"students",
+								"10"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Student Detail",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{localhost}}/students/5",
+							"host": [
+								"{{localhost}}"
+							],
+							"path": [
+								"students",
+								"5"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete students",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{localhost}}/students/11",
+							"host": [
+								"{{localhost}}"
+							],
+							"path": [
+								"students",
+								"11"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

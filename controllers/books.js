@@ -52,8 +52,15 @@ module.exports = class BooksController {
     if (!id) res.status(404).send('No ID provided')
 
     await Books.update({bookName: name}, {where: {id}})
-      .then(data => res.status(200).json(data))
       .catch(err => res.send(err))
+
+      await Books.findByPk(id, {
+        attributes: {
+          exclude: ['createdAt', 'updatedAt']
+        }
+      })
+        .then(data => res.status(200).json(data))
+        .catch(err => res.send(err))
   }
 
   static async destroy(req, res) {
@@ -66,7 +73,10 @@ module.exports = class BooksController {
         id
       }
     })
-      .then(data => res.status(200).json(data))
+    .then(data => {
+      if (data > 0) res.status(200).json(data)
+      else res.status(404).send('No Books has been deleted!')
+    })
       .catch(err => res.send(err))
   }
 

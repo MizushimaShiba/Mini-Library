@@ -1,52 +1,66 @@
 const { Books, Students } = require('../models')
 
 module.exports = class BooksController {
-  static create(req, res) {
+  static async create(req, res) {
     const {name} = req.body
 
-    Students.create({name})
+    await Students.create({name})
       .then(data => res.status(200).json(data))
       .catch(err => res.send(err))
   }
 
-  static findAll(req, res) {
-    Students.findAll()
+  static async findAll(req, res) {
+    await Students.findAll({attributes: {exclude: ['createdAt', 'updatedAt']}})
       .then(data => res.status(200).json(data))
       .catch(err => res.send(err))
   }
 
-  static findOne(req, res) {
+  static async findOne(req, res) {
     const id = req.params.id
 
     if (!id) res.status(404).send('No ID provided')
 
-    Students.findByPk(id)
+    await Students.findByPk(id, {
+      attributes: {exclude: ['createdAt', 'updatedAt']},
+      include: {
+        model: Books,
+        attributes: {exclude: ['createdAt', 'updatedAt']}
+      }
+    })
       .then(data => res.status(200).json(data))
       .catch(err => res.send(err))
   }
 
-  static updateName(req, res) {
+  static async updateName(req, res) {
     const id = req.params.id
     const {name} = req.body
 
     if (!id) res.status(404).send('No ID provided')
 
-    Students.update({name}, {where: {id}})
-      .then(data => res.status(200).json(data))
+    await Students.update({name}, {where: {id}})
       .catch(err => res.send(err))
+
+      await Students.findByPk(id, {
+        attributes: {exclude: ['createdAt', 'updatedAt']},
+      })
+        .then(data => res.status(200).json(data))
+        .catch(err => res.send(err))
   }
 
-  static destroy(req, res) {
+  static async destroy(req, res) {
     const id = req.params.id
 
     if (!id) res.status(404).send('No ID provided')
 
-    Students.destroy({
+    await Students.destroy({
       where: {
         id
       }
     })
-      .then(data => res.status(200).json(data))
+      .then(data => {
+        if (data > 0) res.status(200).json(data)
+        else res.status(404).send('No Student has been deleted!')
+      })
       .catch(err => res.send(err))
   }
 
